@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --maroon: #5c1a1a;
+  --gold: #b8860b;
+  --charcoal: #36454f;
+  --cream: #f5f1e8;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-maroon-600 text-white rounded font-medium hover:bg-maroon-700 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 border border-gray-300 text-gray-700 rounded font-medium hover:bg-gray-50 transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-maroon-600 focus:border-transparent;
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-gray-900 mb-6;
+  }
+
+  .container-base {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Utility color classes */
+.text-maroon-600 {
+  color: var(--maroon);
+}
+
+.bg-maroon-600 {
+  background-color: var(--maroon);
+}
+
+.hover\:text-maroon-600:hover {
+  color: var(--maroon);
+}
+
+.hover\:bg-maroon-600:hover {
+  background-color: var(--maroon);
+}
+
+.hover\:bg-maroon-700:hover {
+  background-color: #3d1010;
+}
+
+.border-maroon-200 {
+  border-color: #f0e6e6;
+}
+
+.bg-maroon-50 {
+  background-color: #faf8f8;
+}
