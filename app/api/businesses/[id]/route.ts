@@ -9,7 +9,7 @@ import { BusinessUpdateSchema } from '@/lib/validators';
  * GET /api/businesses/:id - Get single business
  */
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -22,7 +22,7 @@ export async function GET(
     }
 
     // Increment view count
-    await db.update(businesses).set({ viewCount: business.viewCount + 1 }).where(eq(businesses.id, params.id));
+    await db.update(businesses).set({ viewCount: (business.viewCount || 0) + 1 }).where(eq(businesses.id, params.id));
 
     return NextResponse.json(business);
   } catch (error) {
@@ -84,7 +84,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   return withRole(
-    async (req: Request, session: any) => {
+    async (_req: Request, session: any) => {
       try {
         const business = await db.query.businesses.findFirst({
           where: eq(businesses.id, params.id),

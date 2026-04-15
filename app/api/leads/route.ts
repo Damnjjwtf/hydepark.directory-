@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validated = LeadSubmitSchema.parse(body);
 
-    const lead = await db
+    await db
       .insert(leads)
       .values({
         email: validated.email,
@@ -49,21 +49,25 @@ export async function POST(request: NextRequest) {
  */
 export async function GET(request: NextRequest) {
   return withRole(
-    async (req: Request, session: any) => {
+    async (_req: Request, session: any) => {
       try {
         const page = parseInt(request.nextUrl.searchParams.get('page') || '1', 10);
         const limit = 20;
         const offset = (page - 1) * limit;
 
-        let query = db.select().from(leads);
-
-        // Filter based on role
-        if (session.user.role !== 'ADMIN') {
+        // Get leads based on role
+        let results;
+        if (session.user.role === 'ADMIN') {
+          results = await db.select().from(leads).limit(limit).offset(offset);
+        } else {
           // Business owner - only see leads routed to them
-          query = query.where(eq(leads.routedTo, session.user.id));
+          results = await db
+            .select()
+            .from(leads)
+            .where(eq(leads.routedTo, session.user.id))
+            .limit(limit)
+            .offset(offset);
         }
-
-        const results = await query.limit(limit).offset(offset);
 
         return NextResponse.json({
           data: results,

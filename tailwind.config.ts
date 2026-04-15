@@ -17,6 +17,18 @@ const config = {
     },
     extend: {
       colors: {
+        maroon: {
+          50: "#faf8f8",
+          100: "#f0e6e6",
+          200: "#e0cccc",
+          300: "#c4999b",
+          400: "#a86668",
+          500: "#8c3d45",
+          600: "#5c1a1a",
+          700: "#4a1515",
+          800: "#3d1010",
+          900: "#2a0a0a",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

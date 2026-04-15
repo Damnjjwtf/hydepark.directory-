@@ -12,7 +12,7 @@ import { NextRequest, NextResponse } from 'next/server';
  */
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    await request.json();
 
     // TODO: Validate webhook signature from Beehiiv
     // TODO: Process event based on type

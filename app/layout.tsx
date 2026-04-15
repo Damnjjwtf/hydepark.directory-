@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Link from 'next/link';
 import './globals.css';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -28,32 +29,32 @@ export default function RootLayout({
           <header className="border-b border-gray-200 bg-white sticky top-0 z-40">
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
               <div className="flex items-center gap-8">
-                <a href="/" className="text-xl font-bold text-maroon-600">
+                <Link href="/" className="text-xl font-bold text-maroon-600">
                   Hyde Park
-                </a>
+                </Link>
                 <div className="hidden md:flex gap-6 text-sm">
-                  <a href="/search" className="hover:text-maroon-600">
+                  <Link href="/search" className="hover:text-maroon-600">
                     Search
-                  </a>
-                  <a href="/about" className="hover:text-maroon-600">
+                  </Link>
+                  <Link href="/about" className="hover:text-maroon-600">
                     About
-                  </a>
+                  </Link>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <a
+                <Link
                   href="/auth/signin"
                   className="text-sm font-medium hover:text-maroon-600"
                 >
                   Sign In
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/auth/register"
                   className="text-sm font-medium px-3 py-1.5 bg-maroon-600 text-white rounded hover:bg-maroon-700"
                 >
                   Get Started
-                </a>
+                </Link>
               </div>
             </nav>
           </header>
@@ -69,14 +70,14 @@ export default function RootLayout({
                   <h3 className="font-semibold mb-3">For Students</h3>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li>
-                      <a href="/search" className="hover:text-maroon-600">
+                      <Link href="/search" className="hover:text-maroon-600">
                         Directory
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-maroon-600">
+                      <Link href="#" className="hover:text-maroon-600">
                         Community
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -84,14 +85,14 @@ export default function RootLayout({
                   <h3 className="font-semibold mb-3">For Business</h3>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li>
-                      <a href="#" className="hover:text-maroon-600">
+                      <Link href="#" className="hover:text-maroon-600">
                         Get Listed
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-maroon-600">
+                      <Link href="#" className="hover:text-maroon-600">
                         Featured Listings
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -99,14 +100,14 @@ export default function RootLayout({
                   <h3 className="font-semibold mb-3">Company</h3>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li>
-                      <a href="#" className="hover:text-maroon-600">
+                      <Link href="#" className="hover:text-maroon-600">
                         About
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="hover:text-maroon-600">
+                      <Link href="#" className="hover:text-maroon-600">
                         Contact
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>

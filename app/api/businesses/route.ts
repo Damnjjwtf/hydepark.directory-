@@ -51,13 +51,12 @@ export async function GET(request: NextRequest) {
       .limit(limit)
       .offset(offset);
 
-    // Get total count
-    const countResult = await db
-      .select({ count: db.count() })
-      .from(businesses)
-      .where(conditions.length > 0 ? and(...conditions) : undefined);
-
-    const total = countResult[0]?.count || 0;
+    // Get total count (simplified for MVP)
+    const allResults = await (conditions.length > 0
+      ? db.select().from(businesses).where(and(...conditions))
+      : db.select().from(businesses)
+    );
+    const total = allResults.length;
 
     return NextResponse.json({
       data: results,

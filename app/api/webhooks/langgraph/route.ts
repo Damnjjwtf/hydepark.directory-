@@ -13,7 +13,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { agentName, agentExecutionId, status, output } = body;
+    const { agentName, status } = body;
 
     // TODO: Validate webhook signature from agent service
     // TODO: Process completion event based on agentName

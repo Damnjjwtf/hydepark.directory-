@@ -1,17 +1,16 @@
-import { getServerSession } from 'next-auth/next';
-import { redirect } from 'next/navigation';
-import type { AuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import { getServerSession, type NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { redirect } from 'next/navigation';
 import { db } from './db';
 import { users } from './schema';
 import { eq } from 'drizzle-orm';
 
 /**
- * NextAuth.js configuration
+ * NextAuth.js v4 configuration
  * Supports multi-role RBAC with JWT claims
  */
-export const authOptions: AuthOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || '',
@@ -23,7 +22,7 @@ export const authOptions: AuthOptions = {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
+      async authorize(_credentials) {
         // TODO: Implement password verification in Phase 2
         // For MVP, OAuth is primary auth method
         return null;
