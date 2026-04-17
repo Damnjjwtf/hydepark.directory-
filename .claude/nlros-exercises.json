@@ -1,0 +1,203 @@
+{
+  "notebook_id": "1535e67a-33cd-4cef-8600-08a7572edae1",
+  "scenarios": [
+    {
+      "id": "gentrification-accelerant",
+      "name": "The Gentrification Accelerant",
+      "description": "Real estate speculators use resident data to identify displacement targets. Platform becomes a landlord tool instead of community tool.",
+      "threat_level": "critical",
+      "affected_features": ["business_profiles", "resident_data", "listing_visibility", "lead_capture"],
+      "stress_test_prompt": "How would HydePark.directory survive and maintain community trust if real estate investors used it to identify neighborhoods for gentrification? What features could be weaponized? How do we prevent data from being sold or used for targeting vulnerable residents?",
+      "immediate_mitigations": [
+        "Implement data access controls - restrict what fields business owners see",
+        "No bulk export of resident data",
+        "Transparent data policy published on homepage",
+        "Community audit board reviews data usage quarterly"
+      ],
+      "design_changes": [
+        "Add resident privacy tier - 'visible to businesses only' vs 'public'",
+        "Resident profiles never show address/location, only neighborhood/zip",
+        "Disable analytics that show 'which residents visited this business'"
+      ]
+    },
+    {
+      "id": "youth-exodus-spiral",
+      "name": "The Youth Exodus Spiral",
+      "description": "40% of users are students who graduate annually. Platform hits 30% adoption but stalls as cohorts age out. Critical mass never reached.",
+      "threat_level": "critical",
+      "affected_features": ["user_retention", "network_effects", "onboarding", "engagement"],
+      "stress_test_prompt": "UChicago has ~6,000 undergrads with ~25% churn per year. Your platform hits 1,800 users (30% of Hyde Park pop). But 25% leave annually. How do you design for permanent churn? What if the platform becomes 'the app students use while here'? How do you build sticky local engagement that survives generational turnover?",
+      "immediate_mitigations": [
+        "Design for permanent resident personas, not just students",
+        "Property manager features (long-term retention lever)",
+        "Family/parent features (multi-generational stickiness)",
+        "Local business ownership tier (creates economic incentive to stay)"
+      ],
+      "design_changes": [
+        "Add 'years in Hyde Park' badge to encourage long-term resident identity",
+        "Create 'mentor' role - alumni who guide new student cohorts annually",
+        "Property manager dashboard: track tenant turnover, manage leases"
+      ]
+    },
+    {
+      "id": "weaponized-directory",
+      "name": "The Weaponized Directory",
+      "description": "Bad actors use platform for coordinated harassment, doxxing, targeting vulnerable residents, predatory behavior.",
+      "threat_level": "critical",
+      "affected_features": ["user_profiles", "comments", "anonymity", "community_features"],
+      "stress_test_prompt": "What if a group organized harassment campaigns targeting immigrants, renters, or LGBTQ+ residents using HydePark.directory as the coordination tool? What if scammers target elderly residents? What if landlords use the platform to identify 'problem tenants'? How do you design safety into the platform's DNA before launch, not after the first incident?",
+      "immediate_mitigations": [
+        "No anonymous features at launch",
+        "Real identity verification for all users",
+        "Moderation team ready before launch (hire now)",
+        "Clear, published reporting mechanism with 24h response SLA",
+        "Auto-suspend on reported harassment; manual review"
+      ],
+      "design_changes": [
+        "Add 'trust score' visible in profiles (feedback from interactions)",
+        "Disable DMs until both users have positive trust score",
+        "Business owners cannot see individual resident profiles - only aggregated data",
+        "Community forum requires phone verification"
+      ]
+    },
+    {
+      "id": "trust-breach-at-scale",
+      "name": "The Trust Breach at Scale",
+      "description": "Data breach exposes resident spending patterns, movements, social networks. Local media runs story. Trust destroyed.",
+      "threat_level": "critical",
+      "affected_features": ["database_security", "data_retention", "user_data"],
+      "stress_test_prompt": "Your database gets compromised. Local Chicago Tribune runs: 'HydePark.directory Sells Your Neighbor's Location.' What data do you have that you don't actually need? What can you delete today to reduce blast radius? How do you design for 'minimal data by default'?",
+      "immediate_mitigations": [
+        "Encrypt all resident PII at rest and in transit",
+        "Implement SOC 2 Type II compliance before launch",
+        "Incident response plan + cyber insurance",
+        "Delete user data on account deletion (no shadow profiles)",
+        "Regular security audits + penetration testing"
+      ],
+      "design_changes": [
+        "Don't store behavioral data (which businesses residents visit, when)",
+        "Don't store exact coordinates - only neighborhood/zip",
+        "Don't retain chat/message history after 90 days",
+        "Add 'data export & delete' feature in user settings (GDPR-style)"
+      ]
+    },
+    {
+      "id": "influencer-monopoly",
+      "name": "The Influencer Monopoly",
+      "description": "One charismatic community leader dominates content. Platform becomes their megaphone. Other voices disappear.",
+      "threat_level": "high",
+      "affected_features": ["feed_algorithm", "visibility", "content_distribution"],
+      "stress_test_prompt": "A local celebrity or charismatic block club leader posts first. Their content gets 90% of engagement. Everyone else's posts are invisible. How do you prevent 'the algo' from creating a single-voice echo chamber? How do you surface diverse community voices instead of surfacing what's popular?",
+      "immediate_mitigations": [
+        "Algorithmic diversity: surface 'new voices' not just 'popular posts'",
+        "Require post diversity by category/author in feed",
+        "Monthly 'spotlight' for underrepresented voices",
+        "Remove 'like count' - replace with 'useful/not useful' voting"
+      ],
+      "design_changes": [
+        "Feed shows: recent posts (60%), diverse voices (30%), curated (10%)",
+        "No follower count visible (prevents influence hierarchies)",
+        "Posts weighted by reply quality, not engagement volume"
+      ]
+    },
+    {
+      "id": "regulatory-trap",
+      "name": "The Regulatory Trap",
+      "description": "Chicago passes new privacy laws or platform licensing requirements. Compliance costs spike. Pivot or shutdown.",
+      "threat_level": "high",
+      "affected_features": ["data_retention", "business_model", "operations"],
+      "stress_test_prompt": "Illinois passes a CCPA-style law requiring data localization in-state, $500/violation fines, and annual platform licensing fees ($50K+). Your margin disappears overnight. How do you design regulatory optionality into your business model? What if you have to delete all resident data tomorrow?",
+      "immediate_mitigations": [
+        "Assume worst-case: design so you can comply with any privacy law without pivoting",
+        "Keep data minimal and easy to delete",
+        "Build business model that works with $0 resident data",
+        "Monitor Illinois/Chicago policy; join IADC early"
+      ],
+      "design_changes": [
+        "All resident data pseudonymized by default (no names in analytics)",
+        "Business features work without resident data (directory, business pages)"
+      ]
+    },
+    {
+      "id": "competitor-blitzkrieg",
+      "name": "The Competitor Blitzkrieg",
+      "description": "Meta/Google launches 'Hyde Park Connect' with $100M and free featured listings. Your monetization collapses.",
+      "threat_level": "high",
+      "affected_features": ["monetization", "featured_listings", "competitive_advantage"],
+      "stress_test_prompt": "Facebook launches a Hyde Park competitor with free featured listings and $10M in neighborhood-specific marketing. Your Stripe revenue goes to zero. How do you win when you're competing on utility against unlimited capital? What's your unfair advantage that doesn't depend on money?",
+      "immediate_mitigations": [
+        "Monetization must be based on community value, not utility (shift model)",
+        "Build features Big Tech can't: local curation, moderation, trust",
+        "Create switching costs: community reputation, local network effects",
+        "Focus on community ownership, not shareholder value (co-op model?)"
+      ],
+      "design_changes": [
+        "Revenue splits with community (20% of featured listing fees go to neighborhood fund)",
+        "Residents can 'endorse' or 'vouch' for businesses (authenticity > ads)",
+        "Local-only: no algorithmic ranking, only human curation by community"
+      ]
+    },
+    {
+      "id": "dark-mirror",
+      "name": "The Dark Mirror",
+      "description": "Anonymous features become harassment vectors. Women, LGBTQ+, immigrants face coordinated bullying. Platform becomes known as 'the doxxing tool.'",
+      "threat_level": "high",
+      "affected_features": ["community_forum", "anonymity", "moderation"],
+      "stress_test_prompt": "You launch with 'anonymous neighborhood tips' feature thinking it'll drive participation. Within a week, immigrant residents are being targeted with slurs, women are posting fearful, LGBTQ+ residents delete accounts. Chicago Tribune: 'HydePark.directory Becomes Hub for Local Harassment.' How do you design for safety first, participation second?",
+      "immediate_mitigations": [
+        "NO anonymous features at launch (period)",
+        "All posts require verified identity",
+        "Community moderation team (local residents paid to moderate)",
+        "Public moderation log (show what was removed and why)"
+      ],
+      "design_changes": [
+        "Posts require name + neighborhood (not full address)",
+        "Moderation appeals process (transparent, published)",
+        "Community council votes on contentious moderation decisions"
+      ]
+    },
+    {
+      "id": "cold-start-paradox",
+      "name": "The Cold Start Paradox",
+      "description": "Need 50% adoption for network effects, but residents only join when they see 50% adoption. Stuck at 20% forever.",
+      "threat_level": "critical",
+      "affected_features": ["onboarding", "early_growth", "network_effects"],
+      "stress_test_prompt": "You get 20% of Hyde Park to sign up. But they see a ghost town - no businesses, no events, no activity. Why invite friends? You're stuck. How do you bootstrap the directory without paying for fake adoption or spamming? What's the non-network-effect thing that makes 20% useful anyway?",
+      "immediate_mitigations": [
+        "Launch with hand-curated businesses (not user-generated at start)",
+        "Partner with 10-15 local businesses before launch (commit to posting)",
+        "Launch with pre-populated events (manually curate for first month)",
+        "Seed with organized groups (block clubs, student orgs)"
+      ],
+      "design_changes": [
+        "Business directory works with OR without residents (directory-first, not network-first)",
+        "Community curation by editors (not algorithmic until you have critical mass)",
+        "Early access: first 500 residents get 'founder' badge + lifetime free premium"
+      ]
+    },
+    {
+      "id": "surveillance-creep",
+      "name": "The Surveillance Creep",
+      "description": "City/police gradually request resident activity data. Platform becomes neighborhood monitoring tool. Privacy trust evaporates.",
+      "threat_level": "high",
+      "affected_features": ["data_retention", "user_data", "policy"],
+      "stress_test_prompt": "Chicago PD requests 'all posts mentioning 63rd Street' to investigate crime. You comply. Then they ask for resident location data. Then behavioral patterns. You've become a surveillance tool. How do you design for resistance to law enforcement pressure? What if you can't say no, but you can design so you have nothing to give?",
+      "immediate_mitigations": [
+        "Policy: publish all data requests (no secret compliance)",
+        "Minimal data collection (so you have less to give)",
+        "Clear TOS: residents own their data, not the platform",
+        "Community board approves any data requests (external review)"
+      ],
+      "design_changes": [
+        "Don't store location data (only neighborhood tag, no coordinates)",
+        "Don't store timestamps on posts (only 'today', 'this week')",
+        "No browsing history, no 'last seen' timestamps"
+      ]
+    }
+  ],
+  "meta": {
+    "created_date": "2026-04-16",
+    "version": "1.0",
+    "how_to_use": "Run `nlros stress-test --scenario <id>` to query the NLROS notebook about this specific threat and get tactical mitigations"
+  }
+}

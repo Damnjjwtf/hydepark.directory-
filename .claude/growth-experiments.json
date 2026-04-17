@@ -1,0 +1,223 @@
+{
+  "notebook_id": "fac118e1-f45d-4cf0-ac8f-0f9a66238c38",
+  "north_star_metric": {
+    "name": "Community Contribution Index",
+    "definition": "% of residents who have taken at least one community action per month (posted event, answered question, endorsed business, shared resource)",
+    "why": "Measures platform health as 'residents helping residents,' not vanity metrics like downloads or DAU",
+    "targets": {
+      "month_1": "5%",
+      "month_3": "20%",
+      "month_6": "35%",
+      "month_12": "50%"
+    },
+    "aligned_with_nlros": "Solves Cold Start Paradox + Influencer Monopoly by measuring diverse contribution, not engagement concentration"
+  },
+  "friction_map": {
+    "onboarding": {
+      "problem": "New user sees empty directory. No reason to invite friends.",
+      "friction_score": 9,
+      "nlros_scenario": "cold-start-paradox",
+      "hypothesis": "If we pre-populate with curated businesses + seed with block clubs, new users see a 'living' directory",
+      "experiment": {
+        "name": "Founder Pod Onboarding",
+        "variant_a": "Standard sign-up → empty feed",
+        "variant_b": "Sign-up → assigned to 'Pod' (cohort) with other new residents → shared challenges",
+        "metric": "% who complete profile + invite 3+ friends within 7 days",
+        "duration_weeks": 4,
+        "investment": "Low (UI changes only)"
+      }
+    },
+    "business_adoption": {
+      "problem": "Business owners hesitate to list/post. 'Why should I trust this app?'",
+      "friction_score": 8,
+      "nlros_scenario": "trust-breach-at-scale",
+      "hypothesis": "If we show 5 verified community members vouching for the platform, trust increases",
+      "experiment": {
+        "name": "Community Vouching Protocol",
+        "variant_a": "Standard business onboarding form",
+        "variant_b": "Form + 'community members who vouched for us' section + transparent data policy",
+        "metric": "Business account creation → first post within 2 weeks",
+        "duration_weeks": 3,
+        "investment": "Medium (design + community recruiting)"
+      }
+    },
+    "resident_engagement": {
+      "problem": "Users sign up, post once, never return. App fatigue.",
+      "friction_score": 7,
+      "nlros_scenario": "youth-exodus-spiral",
+      "hypothesis": "If we create a weekly ritual (block update digest), users return habitually",
+      "experiment": {
+        "name": "Weekly Block Digest",
+        "variant_a": "No digest",
+        "variant_b": "Thursday 6pm: 'What happened on your block this week' email + app push",
+        "metric": "Weekly active residents + session frequency",
+        "duration_weeks": 8,
+        "investment": "Medium (email system + content curation)"
+      }
+    },
+    "referral_activation": {
+      "problem": "No mechanism for users to invite friends. Referrals are 0.",
+      "friction_score": 8,
+      "nlros_scenario": "cold-start-paradox",
+      "hypothesis": "If users get 'founder' status for every 3 friends invited, they'll share",
+      "experiment": {
+        "name": "Founder Badge Referral Loop",
+        "variant_a": "No referral incentive",
+        "variant_b": "Invite 3+ friends → 'Founder' badge + 1 month free premium + featured on community board",
+        "metric": "Invites per resident + referral conversion rate",
+        "duration_weeks": 6,
+        "investment": "Low (badge system + email invites)"
+      }
+    },
+    "trust_paradox": {
+      "problem": "Residents fear data harvesting. 'What data does this app collect?'",
+      "friction_score": 9,
+      "nlros_scenario": "trust-breach-at-scale + surveillance-creep",
+      "hypothesis": "If we publish exact data policy + monthly transparency report, concerns drop 60%",
+      "experiment": {
+        "name": "Radical Transparency Dashboard",
+        "variant_a": "Standard privacy page",
+        "variant_b": "Public data audit dashboard: 'Here's everything we collect & why' + zero dark patterns badge",
+        "metric": "Account creation rate + trust survey (NPS-style)",
+        "duration_weeks": 4,
+        "investment": "Medium (dashboard + monthly updates)"
+      }
+    },
+    "gentrification_resistance": {
+      "problem": "Platform could become tool for speculators. 'This will price out low-income residents.'",
+      "friction_score": 10,
+      "nlros_scenario": "gentrification-accelerant",
+      "hypothesis": "If we offer 'Community First' pricing tier + pledge revenue to neighborhood fund, skepticism drops",
+      "experiment": {
+        "name": "Community First Tier",
+        "variant_a": "Standard featured listings ($50/mo)",
+        "variant_b": "Tier 1: Community-owned businesses (20% off) + revenue shared with neighborhood fund",
+        "metric": "Adoption by local nonprofits + affordability perception survey",
+        "duration_weeks": 8,
+        "investment": "High (payment logic + communications)"
+      }
+    },
+    "feature_virality": {
+      "problem": "No feature that residents naturally share. Growth is only via direct invites.",
+      "friction_score": 7,
+      "nlros_scenario": "cold-start-paradox",
+      "hypothesis": "If we create a 'Weekly Block Alert' feature (emergency info, events, local updates), residents share it organically",
+      "experiment": {
+        "name": "Viral Block Alert System",
+        "variant_a": "No block alerts",
+        "variant_b": "Quick-share block alerts: 'Street closed,' 'Lost pet,' 'Community meeting'",
+        "metric": "Shares per alert + invite rate from alert page",
+        "duration_weeks": 6,
+        "investment": "Medium (feature build + moderation)"
+      }
+    },
+    "dark_pattern_avoidance": {
+      "problem": "Temptation to use manipulative tactics for growth. NLROS warns against this.",
+      "friction_score": "N/A (ethical, not user friction)",
+      "nlros_scenario": "weaponized-directory + dark-mirror",
+      "hypothesis": "If we design for trust + transparency first, growth is slower but sustainable",
+      "experiment": {
+        "name": "Ethical Growth Audit",
+        "variant_a": "Track growth tactics used",
+        "variant_b": "Monthly review: 'Did we use any dark patterns?' + publish results",
+        "metric": "Growth rate + trust/safety complaints ratio",
+        "duration_weeks": 12,
+        "investment": "Low (process only)"
+      }
+    },
+    "property_manager_retention": {
+      "problem": "Property managers (long-term residents) aren't engaged. They could be huge retention lever.",
+      "friction_score": 6,
+      "nlros_scenario": "youth-exodus-spiral",
+      "hypothesis": "If we create PM dashboard (tenant requests, maintenance tickets), they'll use platform weekly",
+      "experiment": {
+        "name": "Property Manager Dashboard",
+        "variant_a": "No PM-specific features",
+        "variant_b": "Dashboard: tenant requests, maintenance coordination, lease management",
+        "metric": "PM monthly active users + feature adoption",
+        "duration_weeks": 10,
+        "investment": "High (feature build + testing)"
+      }
+    },
+    "competitor_resilience": {
+      "problem": "When Meta launches 'Hyde Park Connect,' what's our unfair advantage?",
+      "friction_score": "Strategic",
+      "nlros_scenario": "competitor-blitzkrieg",
+      "hypothesis": "If we're 'community-owned' + transparent, we survive Big Tech competition",
+      "experiment": {
+        "name": "Community Ownership Positioning",
+        "variant_a": "Standard company messaging",
+        "variant_b": "Messaging: 'Built by Hyde Park residents, for Hyde Park' + community board seat",
+        "metric": "Brand perception vs competitors + long-term retention",
+        "duration_weeks": 12,
+        "investment": "Medium (communications + governance)"
+      }
+    }
+  },
+  "growth_loops": [
+    {
+      "loop_name": "The Contribution Spiral",
+      "stages": [
+        "New resident signs up → assigned to Pod (cohort)",
+        "Pod completes weekly challenge (e.g., 'find 3 local events,' 'endorse 1 business')",
+        "Contributions visible to block → triggers invites from neighbors",
+        "More invites → pod grows → bigger challenges → more contributions",
+        "Loop closes when resident becomes 'elder' and helps onboard next cohort"
+      ],
+      "north_star_alignment": "Drives Community Contribution Index",
+      "nlros_alignment": "Solves Cold Start Paradox + Youth Exodus (long-term identity)"
+    },
+    {
+      "loop_name": "The Trust Loop",
+      "stages": [
+        "Resident worries about data privacy",
+        "Sees public data audit dashboard",
+        "Reads transparent policy + monthly report",
+        "Invites skeptical friend ('it's actually trustworthy')",
+        "New resident immediately sees trust indicators → onboards faster"
+      ],
+      "north_star_alignment": "Increases account creation rate",
+      "nlros_alignment": "Solves Trust Breach + Surveillance Creep risks"
+    },
+    {
+      "loop_name": "The Business Growth Loop",
+      "stages": [
+        "Business owner worries: 'Will anyone use this?'",
+        "Sees 5 resident testimonials + featured section",
+        "Posts first event → gets 10 RSVPs",
+        "Success → posts again → gets 20 RSVPs",
+        "Encourages other businesses → platform becomes essential"
+      ],
+      "north_star_alignment": "Drives business adoption + resident engagement",
+      "nlros_alignment": "Solves Competitor Blitzkrieg (defensibility through business partnerships)"
+    },
+    {
+      "loop_name": "The Affordability Loop",
+      "stages": [
+        "Low-income residents worry: 'This will gentrify my neighborhood'",
+        "See 'Community First' tier (20% discount for nonprofits + co-ops)",
+        "See revenue share commitment (20% to neighborhood fund)",
+        "Build trust → contribute content → invite others",
+        "Neighborhood becomes more tightly knit → resists gentrification pressure"
+      ],
+      "north_star_alignment": "Drives diverse participation",
+      "nlros_alignment": "Directly addresses Gentrification Accelerant risk"
+    }
+  ],
+  "experimentation_cadence": {
+    "pace": "3-5 experiments per week",
+    "duration": "3-8 weeks each",
+    "decision_rule": "If metric improves 20%+, ship it. If flat, iterate or kill.",
+    "tracking": "Weekly growth meeting: Which experiments learned something? What's next?",
+    "aligned_with_crazy_horse": "High-velocity experimentation culture removes friction, finds 10X improvements"
+  },
+  "weekly_cadence": {
+    "monday": "Design 3 new experiments (query both notebooks)",
+    "tuesday_wednesday": "Launch experiments (A/B tests active)",
+    "thursday": "Interim results check",
+    "friday": "Growth meeting: results + next week planning",
+    "sunday": "Review week's Community Contribution Index + cohort health"
+  },
+  "how_to_use": "Query the growth hacking notebook with: notebooklm ask '<friction_point>' to get tactics from the playbook",
+  "integration_with_nlros": "Every experiment should be checked against NLROS scenarios. E.g., 'Founder Badge Referral' - does it avoid dark patterns? Does it risk Influencer Monopoly? Does it resist Weaponization?"
+}
